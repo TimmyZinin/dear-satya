@@ -161,17 +161,6 @@
             font-style: italic;
         }
 
-        .hero-timer {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: #444;
-            margin-top: 16px;
-        }
-
-        .hero-timer span {
-            color: var(--accent);
-        }
-
         .scroll-arrow {
             position: absolute;
             bottom: 30px;
@@ -798,9 +787,6 @@
             A data-driven collection of what your users <em>actually</em> think about your products.<br>
             Backed by real reviews, real numbers, real frustration.
         </p>
-        <div class="hero-timer">
-            Time since Alexander's promise: <span id="promise-timer">--</span>
-        </div>
     </div>
     <div class="scroll-arrow">&#8595;</div>
 </section>
@@ -1093,7 +1079,7 @@
         <div class="thank-label">With sincere gratitude</div>
         <h2>From the bottom of my heart, I thank</h2>
         <div class="alex-big">Alexander Vic</div>
-        <p>for making the delivery of this message to Satya Nadella possible. Your promise to speak truth to power is the kind of courage this industry needs.</p>
+        <p>for your willingness to bring this message closer to Satya Nadella. The fact that you offered to speak up is the kind of courage this industry needs.</p>
         <p>Every link on this page leads to real user data. Every number is sourced. Every quote is from an actual person. This isn't rage &mdash; this is feedback, Satya.</p>
 
         <div class="wish">
@@ -1116,26 +1102,6 @@
 </footer>
 
 <script>
-// === Live timer since Alexander's promise ===
-function updateTimer() {
-    const promiseDate = new Date('2026-02-20T09:25:00+03:00');
-    const now = new Date();
-    const diff = now - promiseDate;
-    if (diff < 0) { document.getElementById('promise-timer').textContent = '00h 00m 00s'; return; }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    const parts = [];
-    if (d > 0) parts.push(d + 'd');
-    parts.push(String(h).padStart(2,'0') + 'h');
-    parts.push(String(m).padStart(2,'0') + 'm');
-    parts.push(String(s).padStart(2,'0') + 's');
-    document.getElementById('promise-timer').textContent = parts.join(' ');
-}
-updateTimer();
-setInterval(updateTimer, 1000);
-
 // === Intersection Observer ===
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
