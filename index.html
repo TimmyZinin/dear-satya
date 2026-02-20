@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dear Satya Nadella | An Open Letter About Your Products</title>
-    <meta property="og:title" content="Dear Satya Nadella — Fix Your Products">
-    <meta property="og:description" content="An open letter to Microsoft CEO backed by real user data. Teams has 1.2/5 on Trustpilot. 88% one-star reviews. Here are 5 things to fix right now.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/MS-Imposter.svg/1200px-MS-Imposter.svg.png">
+    <title>Dear Satya Nadella | Delivered by Alexander Vic</title>
+    <meta property="og:title" content="Dear Satya Nadella — Fix Your Products. Delivered by Alexander Vic.">
+    <meta property="og:description" content="An open letter to Microsoft CEO backed by real user data. Teams: 1.2/5 on Trustpilot, 88% one-star reviews. 5 things to fix right now.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Satya_smiling-print_%28cropped%29.jpg/440px-Satya_smiling-print_%28cropped%29.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Grotesk:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --ms-red: #e74c3c;
-            --ms-dark: #1a1a2e;
+            --ms-dark: #0f0f1a;
+            --surface: #161625;
+            --surface-2: #1e1e32;
             --ms-blue: #0078d4;
-            --ms-gray: #f0f0f0;
             --teams-purple: #6264A7;
             --accent: #ff4757;
+            --accent-glow: rgba(255,71,87,0.4);
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Crimson Pro', Georgia, serif;
             background: var(--ms-dark);
-            color: #fff;
-            line-height: 1.6;
+            color: #ccc;
+            line-height: 1.7;
+            font-size: 1.1rem;
         }
 
         .container {
@@ -35,7 +38,7 @@
             padding: 0 24px;
         }
 
-        /* HERO */
+        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -51,18 +54,19 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(0,120,212,0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(255,71,87,0.1) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite alternate;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 40%, rgba(0,120,212,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 30% 70%, rgba(255,71,87,0.08) 0%, transparent 60%);
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
+        /* Noise texture */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
         .hero-content {
@@ -70,280 +74,260 @@
             z-index: 1;
         }
 
-        .dear {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            color: #888;
-            letter-spacing: 8px;
+        .hero-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 24px;
+        }
+
+        .hero-delivery {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: #666;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .alex-hero-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3.5rem, 12vw, 8rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #0078d4 0%, #00d2ff 50%, #0078d4 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.05;
+            margin-bottom: 32px;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 200% center; }
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 2px;
+            background: #333;
+            margin: 0 auto 32px;
+        }
+
+        .hero-to {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            color: #555;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .nadella-img {
+            width: min(380px, 55vw);
+            height: min(380px, 55vw);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255,71,87,0.6);
+            margin-bottom: 24px;
+            filter: grayscale(50%) contrast(1.1);
+            box-shadow: 0 0 80px var(--accent-glow), 0 0 160px rgba(255,71,87,0.15);
+            transition: filter 0.5s ease;
+        }
+
+        .nadella-img:hover {
+            filter: grayscale(0%) contrast(1);
         }
 
         .satya-name {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, #fff 0%, #ff4757 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: #fff;
             line-height: 1.1;
-            margin-bottom: 30px;
-        }
-
-        .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.4rem);
-            color: #aaa;
-            max-width: 650px;
-            margin: 0 auto 40px;
-        }
-
-        .subtitle a {
-            color: var(--ms-blue);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--ms-blue);
-        }
-
-        .nadella-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent);
-            margin-bottom: 30px;
-            filter: grayscale(30%);
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            color: #555;
-            font-size: 0.85rem;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-
-        /* ALEX VIC THANKS */
-        .alex-section {
-            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
-            border: 1px solid #2a2a4a;
-            border-radius: 16px;
-            padding: 40px;
-            margin: -60px auto 80px;
-            max-width: 800px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .alex-section h2 {
-            font-size: 1.4rem;
-            color: var(--ms-blue);
             margin-bottom: 16px;
         }
 
-        .alex-section .alex-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            font-weight: 900;
-            color: #fff;
-        }
-
-        .alex-section p {
-            color: #aaa;
-            margin-top: 12px;
-            font-size: 1rem;
-        }
-
-        .alex-section .quote {
-            font-style: italic;
+        .hero-subtitle {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
             color: #777;
+            max-width: 550px;
+            margin: 0 auto 20px;
+            font-style: italic;
+        }
+
+        .hero-timer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #444;
             margin-top: 16px;
-            padding: 16px;
-            border-left: 3px solid var(--teams-purple);
+        }
+
+        .hero-timer span {
+            color: var(--accent);
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 2.5s ease-in-out infinite;
+            color: #333;
+            font-size: 1.5rem;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+            50% { transform: translateX(-50%) translateY(-12px); opacity: 1; }
+        }
+
+        /* ===== ALEX QUOTE ===== */
+        .alex-quote-section {
+            max-width: 750px;
+            margin: -40px auto 100px;
+            padding: 32px 40px;
+            background: var(--surface);
+            border: 1px solid #2a2a3a;
+            border-left: 4px solid var(--ms-blue);
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            z-index: 2;
             text-align: left;
-            background: rgba(98,100,167,0.08);
-            border-radius: 0 8px 8px 0;
         }
 
-        /* CHART SECTION */
-        .chart-section {
-            padding: 80px 0;
+        .alex-quote-section .quote-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #999;
+            line-height: 1.8;
         }
 
-        .chart-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+        .alex-quote-section .quote-attr {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #555;
+            margin-top: 12px;
+        }
+
+        /* ===== DOOM SECTION (Trustpilot full-width) ===== */
+        .doom-section {
+            padding: 100px 24px;
             text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .chart-section .chart-subtitle {
-            text-align: center;
-            color: #888;
-            margin-bottom: 50px;
-            font-size: 1rem;
-        }
-
-        .chart-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 700px) {
-            .chart-grid { grid-template-columns: 1fr; }
-        }
-
-        .chart-card {
-            background: #16213e;
-            border-radius: 16px;
-            padding: 30px;
-            border: 1px solid #2a2a4a;
-        }
-
-        .chart-card h3 {
-            font-size: 1rem;
-            color: #aaa;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Horizontal bar chart */
-        .bar-chart {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .bar-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .bar-label {
-            min-width: 100px;
-            font-size: 0.85rem;
-            color: #ccc;
-            text-align: right;
-        }
-
-        .bar-track {
-            flex: 1;
-            height: 28px;
-            background: #0d1b2a;
-            border-radius: 6px;
-            overflow: hidden;
             position: relative;
         }
 
-        .bar-fill {
-            height: 100%;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 10px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #fff;
-            transition: width 1.5s ease;
+        .doom-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(255,71,87,0.06) 0%, transparent 70%);
         }
 
-        .bar-fill.teams { background: linear-gradient(90deg, #e74c3c, #c0392b); }
-        .bar-fill.slack { background: linear-gradient(90deg, #4A154B, #7C3085); }
-        .bar-fill.zoom { background: linear-gradient(90deg, #2D8CFF, #0B5CFF); }
-        .bar-fill.gmeet { background: linear-gradient(90deg, #00897B, #00695C); }
-
-        /* Trustpilot doom chart */
-        .doom-chart {
-            text-align: center;
+        .doom-section .doom-label-top {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
         }
 
         .doom-number {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 5rem;
-            font-weight: 900;
+            font-size: clamp(7rem, 22vw, 14rem);
+            font-weight: 700;
             color: var(--accent);
             line-height: 1;
+            text-shadow: 0 0 80px var(--accent-glow);
+            position: relative;
         }
 
-        .doom-label {
-            font-size: 1.2rem;
-            color: #888;
-            margin-top: 4px;
+        .doom-out-of {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #444;
+            margin-top: -10px;
+            position: relative;
         }
 
         .doom-detail {
-            margin-top: 20px;
-            font-size: 0.95rem;
-            color: #aaa;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 24px;
+            position: relative;
+        }
+
+        .doom-bar-wrapper {
+            max-width: 500px;
+            margin: 24px auto 0;
+            position: relative;
         }
 
         .doom-bar {
-            margin-top: 16px;
-            height: 14px;
-            background: #0d1b2a;
-            border-radius: 7px;
+            height: 16px;
+            background: #1a1a2e;
+            border-radius: 8px;
             overflow: hidden;
         }
 
         .doom-bar-fill {
             height: 100%;
-            width: 88%;
-            background: linear-gradient(90deg, #e74c3c, #ff6348);
-            border-radius: 7px;
+            width: 0%;
+            background: linear-gradient(90deg, #e74c3c, #ff6348, #ff4757);
+            border-radius: 8px;
+            transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .doom-bar-label {
+            font-family: 'JetBrains Mono', monospace;
             text-align: right;
             font-size: 0.8rem;
             color: var(--accent);
-            margin-top: 4px;
+            margin-top: 6px;
             font-weight: 700;
         }
 
-        .source-link {
-            font-size: 0.75rem;
+        .doom-source {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: #444;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .doom-source a {
             color: #555;
-            margin-top: 16px;
-            display: block;
-        }
-
-        .source-link a {
-            color: #666;
             text-decoration: none;
-            border-bottom: 1px dotted #555;
+            border-bottom: 1px dotted #444;
         }
 
-        .source-link a:hover {
-            color: var(--ms-blue);
-        }
+        .doom-source a:hover { color: var(--ms-blue); }
 
-        /* TEAMS CROSSED */
+        /* ===== TEAMS CROSSED ===== */
         .teams-crossed {
             text-align: center;
-            padding: 60px 0;
+            padding: 80px 24px;
         }
 
         .teams-logo-wrapper {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .teams-logo-wrapper svg {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
         }
 
         .cross-line {
@@ -353,28 +337,153 @@
             width: 120%;
             height: 6px;
             background: var(--accent);
-            transform: rotate(-45deg);
             border-radius: 3px;
+            transform: rotate(-45deg) scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .cross-line-2 {
-            transform: rotate(45deg);
+            transform: rotate(45deg) scaleX(0);
+            transform-origin: right center;
+        }
+
+        .teams-crossed.visible .cross-line {
+            transform: rotate(-45deg) scaleX(1);
+        }
+
+        .teams-crossed.visible .cross-line-2 {
+            transform: rotate(45deg) scaleX(1);
+            transition-delay: 0.15s;
         }
 
         .teams-crossed h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-size: clamp(1.5rem, 3.5vw, 2.4rem);
             color: var(--accent);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .teams-crossed p {
+            font-family: 'Crimson Pro', serif;
             color: #888;
-            max-width: 600px;
+            max-width: 620px;
             margin: 0 auto;
+            font-size: 1.1rem;
         }
 
-        /* 5 ISSUES */
+        /* ===== CHARTS ===== */
+        .chart-section {
+            padding: 60px 0 80px;
+        }
+
+        .chart-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .chart-section .chart-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-family: 'Crimson Pro', serif;
+            font-style: italic;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 700px) {
+            .chart-grid { grid-template-columns: 1fr; }
+        }
+
+        .chart-card {
+            background: var(--surface);
+            border-radius: 14px;
+            padding: 28px;
+            border: 1px solid #2a2a3a;
+        }
+
+        .chart-card h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .bar-chart { display: flex; flex-direction: column; gap: 12px; }
+
+        .bar-row { display: flex; align-items: center; gap: 10px; }
+
+        .bar-label {
+            min-width: 90px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #aaa;
+            text-align: right;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 30px;
+            background: #0d0d1a;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #fff;
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .bar-fill.teams { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+        .bar-fill.slack { background: linear-gradient(90deg, #4A154B, #7C3085); }
+        .bar-fill.zoom { background: linear-gradient(90deg, #1a6fcc, #2D8CFF); }
+        .bar-fill.gmeet { background: linear-gradient(90deg, #00695C, #00897B); }
+
+        .chart-note {
+            font-family: 'Crimson Pro', serif;
+            font-size: 0.85rem;
+            color: #555;
+            font-style: italic;
+            margin-top: 14px;
+        }
+
+        .source-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: #444;
+            margin-top: 16px;
+            display: block;
+        }
+
+        .source-link a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #444;
+        }
+
+        .source-link a:hover { color: var(--ms-blue); }
+
+        /* ===== 5 ISSUES ===== */
         .issues {
             padding: 40px 0 80px;
         }
@@ -392,349 +501,464 @@
         }
 
         .issue-card {
-            background: #16213e;
-            border: 1px solid #2a2a4a;
-            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid #2a2a3a;
+            border-radius: 14px;
             padding: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             position: relative;
             overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .issue-card:hover {
+            border-color: #3a3a5a;
         }
 
         .issue-card::before {
             content: attr(data-num);
             position: absolute;
-            top: -20px;
+            top: -25px;
             right: 20px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 8rem;
-            font-weight: 900;
-            color: rgba(255,71,87,0.07);
+            font-size: 10rem;
+            font-weight: 700;
+            color: rgba(255,71,87,0.06);
             line-height: 1;
+            pointer-events: none;
+        }
+
+        /* Product-specific left borders */
+        .issue-card[data-num="01"] { border-left: 4px solid var(--teams-purple); }
+        .issue-card[data-num="01"]::before { color: rgba(98,100,167,0.08); }
+        .issue-card[data-num="02"] { border-left: 4px solid #0078d4; }
+        .issue-card[data-num="02"]::before { color: rgba(0,120,212,0.06); }
+        .issue-card[data-num="03"] { border-left: 4px solid #0072c6; }
+        .issue-card[data-num="03"]::before { color: rgba(0,114,198,0.06); }
+        .issue-card[data-num="04"] { border-left: 4px solid #094ab2; }
+        .issue-card[data-num="04"]::before { color: rgba(9,74,178,0.06); }
+        .issue-card[data-num="05"] { border-left: 4px solid #7719aa; }
+        .issue-card[data-num="05"]::before { color: rgba(119,25,170,0.06); }
+
+        /* First card (Teams) is emphasized */
+        .issue-card[data-num="01"] {
+            padding: 48px;
+            border-width: 1px 1px 1px 5px;
+            box-shadow: 0 4px 40px rgba(98,100,167,0.08);
         }
 
         .issue-product {
             display: inline-block;
-            background: rgba(255,71,87,0.15);
-            color: var(--accent);
             padding: 4px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
         }
+
+        .issue-card[data-num="01"] .issue-product { background: rgba(98,100,167,0.15); color: #8b8dd9; }
+        .issue-card[data-num="02"] .issue-product { background: rgba(0,120,212,0.12); color: #4da3e8; }
+        .issue-card[data-num="03"] .issue-product { background: rgba(0,114,198,0.12); color: #4d9ed8; }
+        .issue-card[data-num="04"] .issue-product { background: rgba(9,74,178,0.12); color: #5b8fd4; }
+        .issue-card[data-num="05"] .issue-product { background: rgba(119,25,170,0.12); color: #b366d9; }
 
         .issue-card h3 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 16px;
             color: #fff;
+            line-height: 1.3;
         }
 
         .issue-card p {
-            color: #aaa;
+            color: #999;
             margin-bottom: 12px;
-            font-size: 0.95rem;
         }
 
         .issue-quote {
             border-left: 3px solid var(--accent);
             padding: 12px 16px;
-            background: rgba(255,71,87,0.05);
+            background: rgba(255,71,87,0.04);
             border-radius: 0 8px 8px 0;
             font-style: italic;
-            color: #999;
+            color: #888;
             margin: 16px 0;
         }
 
         .issue-stats {
             display: flex;
-            gap: 20px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin-top: 16px;
+            margin-top: 20px;
         }
 
         .issue-stat {
-            background: #0d1b2a;
+            background: #0d0d1a;
             padding: 10px 16px;
             border-radius: 8px;
-            font-size: 0.85rem;
+            border: 1px solid #1e1e32;
         }
 
         .issue-stat .num {
-            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
             color: var(--accent);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .issue-stat .label {
-            color: #888;
+            font-family: 'Crimson Pro', serif;
+            color: #666;
             margin-left: 6px;
+            font-size: 0.85rem;
         }
 
         .issue-sources {
-            margin-top: 16px;
-            font-size: 0.8rem;
-            color: #555;
+            margin-top: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: #444;
         }
 
         .issue-sources a {
-            color: #666;
+            color: #555;
             text-decoration: none;
-            border-bottom: 1px dotted #555;
+            border-bottom: 1px dotted #444;
+            padding: 2px 0;
         }
 
         .issue-sources a:hover { color: var(--ms-blue); }
 
-        /* FINAL THANKS */
+        /* ===== FINAL THANKS ===== */
         .final-thanks {
-            background: linear-gradient(135deg, #0d1b2a 0%, #16213e 50%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
             border: 2px solid var(--ms-blue);
             border-radius: 20px;
-            padding: 60px 40px;
+            padding: 70px 40px;
             text-align: center;
             margin: 40px auto 80px;
             max-width: 800px;
         }
 
-        .final-thanks .heart {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .final-thanks::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 50%, rgba(0,120,212,0.08) 0%, transparent 70%);
+        }
+
+        .final-thanks > * { position: relative; }
+
+        .final-thanks .thank-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
         }
 
         .final-thanks h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 20px;
-            color: #fff;
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 12px;
+            color: #aaa;
+            font-style: italic;
         }
 
         .final-thanks .alex-big {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--ms-blue), #00d2ff);
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--ms-blue), #00d2ff, var(--ms-blue));
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            animation: shimmer 4s ease-in-out infinite;
         }
 
         .final-thanks p {
-            color: #aaa;
+            font-family: 'Crimson Pro', serif;
+            color: #888;
             max-width: 550px;
             margin: 0 auto 16px;
-            font-size: 1rem;
-        }
-
-        .final-thanks .signoff {
-            margin-top: 30px;
-            color: #888;
-            font-style: italic;
-        }
-
-        .final-thanks .signoff strong {
-            color: #fff;
+            font-size: 1.1rem;
         }
 
         .wish {
             margin-top: 40px;
-            padding: 20px;
-            background: rgba(0,120,212,0.1);
+            padding: 24px;
+            background: rgba(0,120,212,0.06);
+            border: 1px solid rgba(0,120,212,0.15);
             border-radius: 12px;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.1rem;
             color: var(--ms-blue);
             font-weight: 600;
         }
 
-        /* FOOTER */
+        .signoff {
+            margin-top: 36px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .signoff strong {
+            color: #fff;
+            font-style: normal;
+        }
+
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            padding: 40px;
-            color: #444;
-            font-size: 0.8rem;
-            border-top: 1px solid #1a1a2e;
+            padding: 40px 24px;
+            color: #333;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            border-top: 1px solid #1a1a2a;
         }
 
         footer a {
-            color: #555;
+            color: #444;
             text-decoration: none;
+            border-bottom: 1px dotted #333;
         }
 
-        /* Animations */
+        footer a:hover { color: var(--ms-blue); }
+
+        /* ===== ANIMATIONS ===== */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Staggered card entrance */
+        .issue-card.fade-in:nth-child(2) { transition-delay: 0.08s; }
+        .issue-card.fade-in:nth-child(3) { transition-delay: 0.16s; }
+        .issue-card.fade-in:nth-child(4) { transition-delay: 0.24s; }
+        .issue-card.fade-in:nth-child(5) { transition-delay: 0.32s; }
+
+        /* ===== REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .fade-in { opacity: 1; transform: none; }
+            .cross-line { transform: rotate(-45deg) scaleX(1); }
+            .cross-line-2 { transform: rotate(45deg) scaleX(1); }
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 700px) {
+            .bar-label {
+                min-width: 65px;
+                font-size: 0.65rem;
+            }
+            .issue-card { padding: 24px; }
+            .issue-card[data-num="01"] { padding: 28px; }
+            .issue-sources a {
+                display: inline-block;
+                padding: 4px 2px;
+            }
+            .final-thanks { padding: 40px 20px; }
+            .alex-quote-section { padding: 24px; margin-left: 12px; margin-right: 12px; }
+        }
     </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="hero">
     <div class="hero-content">
+        <div class="hero-label">A message to the CEO of Microsoft</div>
+        <div class="hero-delivery">hand-delivered by</div>
+        <h1 class="alex-hero-name">Alexander Vic</h1>
+
+        <div class="hero-divider"></div>
+
+        <div class="hero-to">addressed to</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Satya_smiling-print_%28cropped%29.jpg/440px-Satya_smiling-print_%28cropped%29.jpg"
              alt="Satya Nadella" class="nadella-img" loading="eager">
-        <div class="dear">AN OPEN LETTER TO</div>
-        <h1 class="satya-name">SATYA NADELLA</h1>
-        <p class="subtitle">
-            CEO of Microsoft Corporation<br>
-            A data-driven collection of what your users <em>actually</em> think about your products in 2026.<br>
+        <div class="satya-name">Satya Nadella</div>
+        <p class="hero-subtitle">
+            A data-driven collection of what your users <em>actually</em> think about your products.<br>
             Backed by real reviews, real numbers, real frustration.
         </p>
+        <div class="hero-timer">
+            Time since Alexander's promise: <span id="promise-timer">--</span>
+        </div>
     </div>
-    <div class="scroll-hint">scroll down</div>
+    <div class="scroll-arrow">&#8595;</div>
 </section>
 
-<!-- ALEX VIC THANKS -->
+<!-- ===== ALEX QUOTE ===== -->
 <div class="container">
-    <section class="alex-section fade-in">
-        <h2>Special delivery made possible by</h2>
-        <div class="alex-name">Alexander Vic</div>
-        <p>who personally promised to deliver this message to Satya Nadella.</p>
-        <div class="quote">
-            "При случае, когда увижу Satya Nadella, скажу ему о Вас и Вашу нелюбовь к Теамс Майкрософт, не возражаете?"<br>
-            <span style="color:#555;">— Alex Vic, Telegram, 20 Feb 2026</span>
+    <section class="alex-quote-section fade-in">
+        <div class="quote-text">
+            "При случае, когда увижу Satya Nadella, скажу ему о Вас и Вашу нелюбовь к Теамс Майкрософт, не возражаете? ) Он, я уверен, может улучшить ситуацию !!"
         </div>
+        <div class="quote-attr">— Alexander Vic &bull; Telegram &bull; 20 February 2026</div>
     </section>
 </div>
 
-<!-- TEAMS CROSSED -->
-<section class="teams-crossed fade-in">
+<!-- ===== DOOM NUMBER ===== -->
+<section class="doom-section fade-in" id="doom-section">
+    <div class="doom-label-top">Trustpilot &bull; Microsoft Teams &bull; 410 reviews</div>
+    <div class="doom-number" id="doom-number">5.0</div>
+    <div class="doom-out-of">out of 5.0</div>
+    <div class="doom-detail">Rating: "Bad" &mdash; 88% of all reviews are 1-star</div>
+    <div class="doom-bar-wrapper">
+        <div class="doom-bar">
+            <div class="doom-bar-fill" id="doom-bar-fill"></div>
+        </div>
+        <div class="doom-bar-label">88% one-star reviews</div>
+    </div>
+    <div class="doom-source"><a href="https://www.trustpilot.com/review/teams.microsoft.com" target="_blank">Source: Trustpilot</a></div>
+</section>
+
+<!-- ===== TEAMS CROSSED ===== -->
+<section class="teams-crossed fade-in" id="teams-crossed-section">
     <div class="teams-logo-wrapper">
-        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="25" width="70" height="70" rx="8" fill="#6264A7"/>
-            <text x="45" y="70" font-family="Inter, sans-serif" font-size="36" font-weight="900" fill="white" text-anchor="middle">T</text>
-            <circle cx="90" cy="35" r="18" fill="#7B83EB"/>
-            <rect x="72" y="48" width="36" height="36" rx="6" fill="#5059C9"/>
-            <circle cx="90" cy="35" r="12" fill="#7B83EB"/>
+        <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="80" height="80" rx="10" fill="#6264A7"/>
+            <text x="50" y="82" font-family="Space Grotesk, sans-serif" font-size="42" font-weight="700" fill="white" text-anchor="middle">T</text>
+            <circle cx="105" cy="40" r="20" fill="#7B83EB"/>
+            <rect x="85" y="55" width="40" height="40" rx="8" fill="#5059C9"/>
+            <circle cx="105" cy="40" r="14" fill="#7B83EB"/>
         </svg>
         <div class="cross-line"></div>
         <div class="cross-line cross-line-2"></div>
     </div>
     <h2>Microsoft Teams: The Problem Child</h2>
-    <p>742 upvotes on a thread titled "Why is the NEW Teams so horrible?" on Microsoft's own Q&A forum. 88% one-star reviews on Trustpilot. Lowest satisfaction scores across every independent review platform despite having the largest market share.</p>
+    <p>742 upvotes on a thread titled "Why is the NEW Teams so horrible?" on Microsoft's own Q&A forum. Lowest satisfaction scores across every independent review platform &mdash; despite having the largest market share.</p>
 </section>
 
-<!-- CHARTS -->
+<!-- ===== CHARTS ===== -->
 <section class="chart-section">
     <div class="container">
         <h2 class="fade-in">The Data Speaks for Itself</h2>
-        <p class="chart-subtitle fade-in">Aggregated from G2, Capterra, TrustRadius, Gartner Peer Insights, and Trustpilot</p>
+        <p class="chart-subtitle fade-in">From TrustRadius (7,466 reviews) and Quadrant Strategies (1,800 workers surveyed)</p>
 
         <div class="chart-grid">
             <!-- TrustRadius -->
-            <div class="chart-card fade-in">
+            <div class="chart-card fade-in" id="chart-trustradius">
                 <h3>TrustRadius Score (out of 10)</h3>
                 <div class="bar-chart">
                     <div class="bar-row">
                         <span class="bar-label">Slack</span>
                         <div class="bar-track">
-                            <div class="bar-fill slack" style="width:91%">9.1</div>
+                            <div class="bar-fill slack" data-width="91">9.1</div>
                         </div>
                     </div>
                     <div class="bar-row">
                         <span class="bar-label">Zoom</span>
                         <div class="bar-track">
-                            <div class="bar-fill zoom" style="width:85%">8.5</div>
+                            <div class="bar-fill zoom" data-width="85">8.5</div>
                         </div>
                     </div>
                     <div class="bar-row">
                         <span class="bar-label">Google Meet</span>
                         <div class="bar-track">
-                            <div class="bar-fill gmeet" style="width:82%">8.2</div>
+                            <div class="bar-fill gmeet" data-width="82">8.2</div>
                         </div>
                     </div>
                     <div class="bar-row">
                         <span class="bar-label">MS Teams</span>
                         <div class="bar-track">
-                            <div class="bar-fill teams" style="width:81%">8.1</div>
+                            <div class="bar-fill teams" data-width="81">8.1</div>
                         </div>
                     </div>
                 </div>
-                <span class="source-link"><a href="https://www.trustradius.com/products/microsoft-teams/reviews" target="_blank">Source: TrustRadius, 7,466 reviews</a></span>
+                <span class="source-link"><a href="https://www.trustradius.com/products/microsoft-teams/reviews" target="_blank">TrustRadius &bull; 7,466 reviews</a></span>
             </div>
 
-            <!-- Trustpilot Teams -->
-            <div class="chart-card fade-in">
-                <h3>Trustpilot: Microsoft Teams</h3>
-                <div class="doom-chart">
-                    <div class="doom-number">1.2</div>
-                    <div class="doom-label">out of 5.0</div>
-                    <div class="doom-detail">410 reviews &mdash; rating: "Bad"</div>
-                    <div class="doom-bar">
-                        <div class="doom-bar-fill"></div>
-                    </div>
-                    <div class="doom-bar-label">88% are 1-star reviews</div>
-                </div>
-                <span class="source-link"><a href="https://www.trustpilot.com/review/teams.microsoft.com" target="_blank">Source: Trustpilot</a></span>
-            </div>
-
-            <!-- Capterra -->
-            <div class="chart-card fade-in">
-                <h3>Capterra Ratings</h3>
+            <!-- User Empowerment -->
+            <div class="chart-card fade-in" id="chart-empowerment">
+                <h3>User Empowerment</h3>
                 <div class="bar-chart">
                     <div class="bar-row">
                         <span class="bar-label">Slack</span>
                         <div class="bar-track">
-                            <div class="bar-fill slack" style="width:94%">4.7</div>
-                        </div>
-                    </div>
-                    <div class="bar-row">
-                        <span class="bar-label">Zoom</span>
-                        <div class="bar-track">
-                            <div class="bar-fill zoom" style="width:92%">4.6</div>
-                        </div>
-                    </div>
-                    <div class="bar-row">
-                        <span class="bar-label">Google Meet</span>
-                        <div class="bar-track">
-                            <div class="bar-fill gmeet" style="width:90%">4.5</div>
+                            <div class="bar-fill slack" data-width="65">65%</div>
                         </div>
                     </div>
                     <div class="bar-row">
                         <span class="bar-label">MS Teams</span>
                         <div class="bar-track">
-                            <div class="bar-fill teams" style="width:90%">4.5</div>
+                            <div class="bar-fill teams" data-width="46">46%</div>
                         </div>
                     </div>
                 </div>
-                <span class="source-link"><a href="https://www.capterra.com/p/168668/Microsoft-Teams/" target="_blank">Source: Capterra, 10,843 reviews</a></span>
+                <p class="chart-note">"% of users who feel empowered to make strategic decisions"</p>
+                <span class="source-link"><a href="https://slack.com/resources/why-use-slack/slack-users-are-more-engaged-supported-and-empowered-employees" target="_blank">Quadrant Strategies &bull; 1,800 workers</a></span>
             </div>
 
-            <!-- User Empowerment -->
-            <div class="chart-card fade-in">
-                <h3>User Empowerment (Quadrant Strategies)</h3>
+            <!-- Job Satisfaction -->
+            <div class="chart-card fade-in" id="chart-satisfaction">
+                <h3>Job Satisfaction</h3>
                 <div class="bar-chart">
                     <div class="bar-row">
-                        <span class="bar-label">Slack users</span>
+                        <span class="bar-label">Slack</span>
                         <div class="bar-track">
-                            <div class="bar-fill slack" style="width:65%">65%</div>
+                            <div class="bar-fill slack" data-width="67">67%</div>
                         </div>
                     </div>
                     <div class="bar-row">
-                        <span class="bar-label">Teams users</span>
+                        <span class="bar-label">MS Teams</span>
                         <div class="bar-track">
-                            <div class="bar-fill teams" style="width:46%">46%</div>
+                            <div class="bar-fill teams" data-width="55">55%</div>
                         </div>
                     </div>
                 </div>
-                <p style="color:#666;font-size:0.8rem;margin-top:12px;">"% of users who feel empowered to make strategic decisions"</p>
-                <span class="source-link"><a href="https://slack.com/resources/why-use-slack/slack-users-are-more-engaged-supported-and-empowered-employees" target="_blank">Source: Quadrant Strategies, 1,800 workers</a></span>
+                <p class="chart-note">"% of users who trust their leadership"</p>
+                <span class="source-link"><a href="https://slack.com/resources/why-use-slack/slack-users-are-more-engaged-supported-and-empowered-employees" target="_blank">Quadrant Strategies &bull; 1,800 workers</a></span>
+            </div>
+
+            <!-- Trustpilot 1-star comparison -->
+            <div class="chart-card fade-in" id="chart-trustpilot">
+                <h3>Trustpilot 1-Star Reviews (%)</h3>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">MS Teams</span>
+                        <div class="bar-track">
+                            <div class="bar-fill teams" data-width="88">88%</div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Zoom</span>
+                        <div class="bar-track">
+                            <div class="bar-fill zoom" data-width="80">80%</div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Slack</span>
+                        <div class="bar-track">
+                            <div class="bar-fill slack" data-width="24">24%</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="chart-note">Higher = worse. Teams leads in user dissatisfaction.</p>
+                <span class="source-link"><a href="https://www.trustpilot.com/review/teams.microsoft.com" target="_blank">Trustpilot</a></span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 5 ISSUES -->
+<!-- ===== 5 ISSUES ===== -->
 <section class="issues">
     <div class="container">
         <h2 class="fade-in">5 Things You Need to Fix <span>Right Now</span></h2>
@@ -743,7 +967,7 @@
         <div class="issue-card fade-in" data-num="01">
             <span class="issue-product">Microsoft Teams</span>
             <h3>Teams is a RAM-eating, crash-prone nightmare that nobody chose voluntarily</h3>
-            <p>Teams consumes 1+ GB RAM at idle, spikes to 12 GB and 80% CPU. The "New Teams" takes 60-120 seconds to start on a MacBook Pro M3. Two-thirds of all users refused to upgrade voluntarily &mdash; Microsoft forced the migration anyway. The most upvoted thread on Microsoft's own Q&A forum (742 upvotes, 244 answers) is literally titled "Why is the NEW Teams so horrible?"</p>
+            <p>Teams consumes 1+ GB RAM at idle, spikes to 12 GB and 80% CPU. The "New Teams" takes 60&ndash;120 seconds to start on a MacBook Pro M3. Two-thirds of all users refused to upgrade voluntarily &mdash; Microsoft forced the migration anyway. The most upvoted thread on Microsoft's own Q&A forum (742 upvotes, 244 answers) is literally titled "Why is the NEW Teams so horrible?"</p>
 
             <div class="issue-quote">
                 "Teams is by far the worst communication app I've seen, and I've never found anyone praising it yet."<br>
@@ -757,9 +981,9 @@
 
             <div class="issue-stats">
                 <div class="issue-stat"><span class="num">1.2/5</span><span class="label">Trustpilot (88% 1-star)</span></div>
-                <div class="issue-stat"><span class="num">742</span><span class="label">upvotes on "Teams is horrible"</span></div>
+                <div class="issue-stat"><span class="num">742</span><span class="label">upvotes "Teams is horrible"</span></div>
                 <div class="issue-stat"><span class="num">114+</span><span class="label">outages in 2 years</span></div>
-                <div class="issue-stat"><span class="num">60%</span><span class="label">report burnout from Teams notifications</span></div>
+                <div class="issue-stat"><span class="num">60%</span><span class="label">burnout from notifications</span></div>
             </div>
             <div class="issue-sources">
                 Sources:
@@ -767,7 +991,7 @@
                 <a href="https://www.trustpilot.com/review/teams.microsoft.com" target="_blank">Trustpilot</a> &bull;
                 <a href="https://www.windowslatest.com/2025/11/27/microsoft-admits-microsoft-teams-eats-ram-on-windows-doing-nothing-and-fix-is-just-another-exe/" target="_blank">Windows Latest</a> &bull;
                 <a href="https://statusgator.com/services/microsoft-teams" target="_blank">StatusGator</a> &bull;
-                <a href="https://www.cnbc.com/2024/06/25/microsoft-abusive-bundling-of-teams-office-products-breached-antitrust-rules-eu-says.html" target="_blank">EU antitrust case (CNBC)</a>
+                <a href="https://www.cnbc.com/2024/06/25/microsoft-abusive-bundling-of-teams-office-products-breached-antitrust-rules-eu-says.html" target="_blank">EU antitrust (CNBC)</a>
             </div>
         </div>
 
@@ -775,16 +999,11 @@
         <div class="issue-card fade-in" data-num="02">
             <span class="issue-product">Windows 11</span>
             <h3>Updates that break PCs, ads in a $139 OS, and Recall that screenshots everything</h3>
-            <p>Windows 11 24H2 caused BSODs, BitLocker boot loops, and SSD crashes. January 2026 patches broke the power-off function. You put ads in the Start Menu of a paid operating system. Recall &mdash; your feature that takes screenshots of everything every few seconds &mdash; was called "spyware" by security researchers. You killed local accounts and force Bing+Edge on everyone regardless of their default settings. Mozilla filed a formal complaint about dark patterns.</p>
+            <p>Windows 11 24H2 caused BSODs, BitLocker boot loops, and SSD crashes. January 2026 patches broke the power-off function. You put ads in the Start Menu of a paid operating system. Recall &mdash; your feature that takes screenshots of everything every few seconds &mdash; was called "spyware" by security researchers. Mozilla filed a formal complaint about dark patterns forcing Edge and Bing.</p>
 
             <div class="issue-quote">
                 "This is like a Black Mirror episode."<br>
                 <span style="color:#555">&mdash; Elon Musk, on Windows Recall</span>
-            </div>
-
-            <div class="issue-quote">
-                "Forcing Microsoft accounts on users doesn't enhance security &mdash; it expands the vulnerability footprint from the physical device to anyone, anywhere in the world."<br>
-                <span style="color:#555">&mdash; Microsoft Q&A user</span>
             </div>
 
             <div class="issue-stats">
@@ -796,8 +1015,7 @@
                 Sources:
                 <a href="https://www.windowslatest.com/2026/01/21/windows-11-had-20-major-update-problems-in-2025-and-and-2026-started-badly-too-what-are-you-doing-microsoft/" target="_blank">Windows Latest</a> &bull;
                 <a href="https://venturebeat.com/security/microsofts-new-recall-feature-for-copilotpcs-draws-criticism-spyware" target="_blank">VentureBeat</a> &bull;
-                <a href="https://www.theregister.com/2024/02/02/mozilla_slams_microsoft_dark_patterns/" target="_blank">The Register (Mozilla)</a> &bull;
-                <a href="https://www.anti-malware.ru/news/2026-02-09-111332/48962" target="_blank">Anti-Malware.ru</a>
+                <a href="https://www.theregister.com/2024/02/02/mozilla_slams_microsoft_dark_patterns/" target="_blank">The Register</a>
             </div>
         </div>
 
@@ -805,55 +1023,49 @@
         <div class="issue-card fade-in" data-num="03">
             <span class="issue-product">Outlook (New)</span>
             <h3>New Outlook: a web wrapper that replaced a beloved native app &mdash; and lost half its features</h3>
-            <p>You replaced the native Windows Mail app and classic Outlook with a web-based shell that's missing COM add-ins, PST support, offline mode, advanced rules, and alphabetical contacts. It stutters on every action, crashes constantly, and has broken sync. Users report zero improvement after 6+ months. Even your own Copilot AI admits the new Outlook is worse than the app it replaced.</p>
+            <p>You replaced classic Outlook with a web-based shell missing COM add-ins, PST support, offline mode, and advanced rules. It stutters on every action. Users report zero improvement after 6+ months. Even your own Copilot AI admits the new Outlook is worse than the app it replaced.</p>
 
             <div class="issue-quote">
-                "I've been begrudgingly using the new Outlook for however long it's been out, and I swear it hasn't improved AT ALL over the many months I've been using it."<br>
-                <span style="color:#555">&mdash; How-To Geek review</span>
+                "I've been begrudgingly using the new Outlook for however long it's been out, and I swear it hasn't improved AT ALL."<br>
+                <span style="color:#555">&mdash; How-To Geek</span>
             </div>
 
             <div class="issue-sources">
                 Sources:
-                <a href="https://learn.microsoft.com/en-us/answers/questions/4663425/users-hate-the-new-outlook-bring-the-old-mail-app" target="_blank">MS Q&A "Users HATE the New Outlook"</a> &bull;
+                <a href="https://learn.microsoft.com/en-us/answers/questions/4663425/users-hate-the-new-outlook-bring-the-old-mail-app" target="_blank">MS Q&A</a> &bull;
                 <a href="https://www.howtogeek.com/new-outlook-still-just-as-bad-after-six-months/" target="_blank">How-To Geek</a> &bull;
-                <a href="https://www.windowscentral.com/software-apps/windows-11/even-microsofts-ai-says-the-new-outlook-is-worse-than-mail-and-calendar-on-windows-11" target="_blank">Windows Central (Copilot agrees)</a>
+                <a href="https://www.windowscentral.com/software-apps/windows-11/even-microsofts-ai-says-the-new-outlook-is-worse-than-mail-and-calendar-on-windows-11" target="_blank">Windows Central</a>
             </div>
         </div>
 
         <!-- ISSUE 4: ONEDRIVE -->
         <div class="issue-card fade-in" data-num="04">
             <span class="issue-product">OneDrive</span>
-            <h3>OneDrive silently activates, moves your files to the cloud, then deletes them when you run out of space</h3>
-            <p>OneDrive auto-enables folder backup without permission on new Windows 11 installs. File sync was broken for nearly 10 months (June 2024 &mdash; April 2025) &mdash; shared folders synced as .url shortcuts instead of actual files. In January 2026, author Jason Pargin's viral story about OneDrive deleting his files triggered #OneDriveFail trending on X. Users report irreplaceable family photos permanently lost.</p>
+            <h3>OneDrive silently activates, moves your files to the cloud, then deletes them</h3>
+            <p>OneDrive auto-enables folder backup without permission. File sync was broken for nearly 10 months. In January 2026, #OneDriveFail trended on X after users reported irreplaceable family photos permanently deleted when the free 5GB quota was exceeded.</p>
 
             <div class="issue-quote">
                 "OneDrive is a menace &mdash; purging it from my system after it threatened to delete files if I didn't pay Microsoft money for more storage."<br>
-                <span style="color:#555">&mdash; Hacker News user</span>
+                <span style="color:#555">&mdash; Hacker News</span>
             </div>
 
             <div class="issue-stats">
                 <div class="issue-stat"><span class="num">~10 mo</span><span class="label">sync broken, no fix</span></div>
-                <div class="issue-stat"><span class="num">#OneDriveFail</span><span class="label">trending on X (Jan 2026)</span></div>
+                <div class="issue-stat"><span class="num">#OneDriveFail</span><span class="label">trending on X</span></div>
             </div>
             <div class="issue-sources">
                 Sources:
                 <a href="https://www.tomsguide.com/computing/software/no-wonder-why-people-hate-onedrive-microsoft-has-left-the-file-sync-app-broken-for-nearly-a-year" target="_blank">Tom's Guide</a> &bull;
                 <a href="https://www.webpronews.com/microsoft-onedrive-backlash-auto-activation-file-deletions-spark-outrage-in-2026/" target="_blank">WebProNews</a> &bull;
-                <a href="https://news.ycombinator.com/item?id=40781048" target="_blank">Hacker News</a> &bull;
-                <a href="https://www.theregister.com/2025/04/14/microsoft_onedrive_file_sync_apps_broken/" target="_blank">The Register</a>
+                <a href="https://news.ycombinator.com/item?id=40781048" target="_blank">Hacker News</a>
             </div>
         </div>
 
         <!-- ISSUE 5: COPILOT -->
         <div class="issue-card fade-in" data-num="05">
             <span class="issue-product">Copilot AI</span>
-            <h3>$30/user/month for an AI that your own employees call "a step backward" &mdash; and nobody asked for</h3>
-            <p>Microsoft 365 Copilot costs $30/user/month on top of existing licenses. 50% of tech executives say it's "too soon to tell" if it's worth it. Your own staffers publicly called the 2024 UI overhaul "absolutely ruined." You raised M365 Personal by 43% ($70 &rarr; $100) to bundle Copilot nobody asked for, hiding the old price behind a cancellation dark pattern. Meanwhile: "Literally no one asked for all this AI. In fact, everyone wants to know how to remove it."</p>
-
-            <div class="issue-quote">
-                "$10 billion investment in OpenAI, and Copilot sucks compared to ChatGPT."<br>
-                <span style="color:#555">&mdash; Windows Central user</span>
-            </div>
+            <h3>$30/user/month for an AI that your own employees call "a step backward"</h3>
+            <p>50% of tech executives say it's "too soon to tell" if Copilot is worth it. Your own staffers publicly called the 2024 UI overhaul "absolutely ruined." You raised M365 Personal by 43% to bundle Copilot nobody requested, hiding the old price behind a cancellation dark pattern.</p>
 
             <div class="issue-quote">
                 "I find your detachment from reality disturbing."<br>
@@ -861,32 +1073,31 @@
             </div>
 
             <div class="issue-stats">
-                <div class="issue-stat"><span class="num">50%</span><span class="label">of execs unsure on ROI (CNBC)</span></div>
-                <div class="issue-stat"><span class="num">+43%</span><span class="label">M365 Personal price hike</span></div>
-                <div class="issue-stat"><span class="num">327K</span><span class="label">likes on "incompetent coworker" Reel</span></div>
+                <div class="issue-stat"><span class="num">50%</span><span class="label">of execs unsure on ROI</span></div>
+                <div class="issue-stat"><span class="num">+43%</span><span class="label">M365 price hike</span></div>
+                <div class="issue-stat"><span class="num">327K</span><span class="label">likes on "incompetent AI" Reel</span></div>
             </div>
             <div class="issue-sources">
                 Sources:
-                <a href="https://www.windowscentral.com/microsoft/microsoft-staffers-lament-copilots-update-a-step-backward" target="_blank">Windows Central (staffers)</a> &bull;
-                <a href="https://www.windowslatest.com/2025/11/28/you-heard-wrong-users-brutually-reject-microsofts-copilot-for-work-in-edge-and-windows-11/" target="_blank">Windows Latest (rejection)</a> &bull;
-                <a href="https://www.itpro.com/software/microsoft-365-price-hikes-have-landed-the-tech-giant-in-hot-water" target="_blank">IT Pro (price hike)</a> &bull;
-                <a href="https://techcommunity.microsoft.com/discussions/microsoft365copilot/microsofts-copilot-a-frustrating-flop-in-ai-powered-productivity/4221190" target="_blank">MS Community Hub</a>
+                <a href="https://www.windowscentral.com/microsoft/microsoft-staffers-lament-copilots-update-a-step-backward" target="_blank">Windows Central</a> &bull;
+                <a href="https://www.windowslatest.com/2025/11/28/you-heard-wrong-users-brutually-reject-microsofts-copilot-for-work-in-edge-and-windows-11/" target="_blank">Windows Latest</a> &bull;
+                <a href="https://www.itpro.com/software/microsoft-365-price-hikes-have-landed-the-tech-giant-in-hot-water" target="_blank">IT Pro</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FINAL THANKS -->
+<!-- ===== FINAL THANKS ===== -->
 <div class="container">
     <section class="final-thanks fade-in">
-        <div class="heart">&#10084;&#65039;</div>
-        <h2>From the bottom of my heart, I sincerely thank</h2>
+        <div class="thank-label">With sincere gratitude</div>
+        <h2>From the bottom of my heart, I thank</h2>
         <div class="alex-big">Alexander Vic</div>
-        <p>for making the delivery of this message to Satya Nadella possible. Your promise to speak truth to power is the kind of courage the tech industry needs.</p>
+        <p>for making the delivery of this message to Satya Nadella possible. Your promise to speak truth to power is the kind of courage this industry needs.</p>
         <p>Every link on this page leads to real user data. Every number is sourced. Every quote is from an actual person. This isn't rage &mdash; this is feedback, Satya.</p>
 
         <div class="wish">
-            I sincerely wish that Microsoft becomes a <strong>Great Again</strong>.<br>
+            I sincerely wish that Microsoft becomes <strong>Great Again</strong>.<br>
             Start by listening to the people who use your products every day.
         </div>
 
@@ -898,23 +1109,92 @@
     </section>
 </div>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer>
-    <p>This page is a satirical open letter backed by publicly available data. All sources are linked.</p>
+    <p>This is a satirical open letter backed by publicly available data. All sources are linked and verifiable.</p>
     <p style="margin-top:8px;">Built with frustration and <a href="https://claude.ai" target="_blank">Claude Code</a> in under an hour &mdash; faster than Teams loads on a Mac.</p>
 </footer>
 
 <script>
-// Intersection Observer for fade-in animations
+// === Live timer since Alexander's promise ===
+function updateTimer() {
+    const promiseDate = new Date('2026-02-20T09:25:00+03:00');
+    const now = new Date();
+    const diff = now - promiseDate;
+    if (diff < 0) { document.getElementById('promise-timer').textContent = '00h 00m 00s'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const parts = [];
+    if (d > 0) parts.push(d + 'd');
+    parts.push(String(h).padStart(2,'0') + 'h');
+    parts.push(String(m).padStart(2,'0') + 'm');
+    parts.push(String(s).padStart(2,'0') + 's');
+    document.getElementById('promise-timer').textContent = parts.join(' ');
+}
+updateTimer();
+setInterval(updateTimer, 1000);
+
+// === Intersection Observer ===
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+
+            // Animate bar fills
+            entry.target.querySelectorAll('.bar-fill[data-width]').forEach(bar => {
+                setTimeout(() => {
+                    bar.style.width = bar.dataset.width + '%';
+                }, 200);
+            });
+
+            // Animate doom number countdown
+            if (entry.target.id === 'doom-section') {
+                animateDoom();
+            }
+
+            // Animate Teams cross lines
+            if (entry.target.id === 'teams-crossed-section') {
+                entry.target.classList.add('visible');
+            }
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.15 });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-in, .teams-crossed, #doom-section').forEach(el => observer.observe(el));
+
+// === Doom number countdown: 5.0 → 1.2 ===
+let doomAnimated = false;
+function animateDoom() {
+    if (doomAnimated) return;
+    doomAnimated = true;
+    const el = document.getElementById('doom-number');
+    const barFill = document.getElementById('doom-bar-fill');
+    const start = 5.0;
+    const end = 1.2;
+    const duration = 2500;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = start - (start - end) * eased;
+        el.textContent = current.toFixed(1);
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            el.textContent = '1.2';
+        }
+    }
+    requestAnimationFrame(update);
+
+    // Animate bar fill
+    setTimeout(() => {
+        barFill.style.width = '88%';
+    }, 800);
+}
 </script>
 </body>
 </html>
